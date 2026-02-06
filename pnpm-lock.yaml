@@ -38,6 +38,9 @@ importers:
 
   client:
     dependencies:
+      '@isy/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@tanstack/react-query':
         specifier: ^5.90.20
         version: 5.90.20(react@19.2.4)
@@ -99,6 +102,9 @@ importers:
 
   server:
     dependencies:
+      '@isy/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@supabase/supabase-js':
         specifier: ^2.95.2
         version: 2.95.2
@@ -139,6 +145,8 @@ importers:
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
+
+  shared: {}
 
 packages:
 

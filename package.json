@@ -8,7 +8,9 @@
     "build": "pnpm -r run build",
     "lint": "eslint . --max-warnings 0",
     "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules dist .turbo",
-    "prepare": "husky"
+    "prepare": "husky",
+    "gen:types": "supabase gen types typescript --local > shared/src/database.types.ts",
+    "check:drift": "pnpm gen:types && git diff --exit-code shared/src/database.types.ts"
   },
   "lint-staged": {
     "*.{js,ts,tsx,jsx,mjs}": [

@@ -1,0 +1,39 @@
+name: Schema Drift Check
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  check-drift:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Start Supabase (Local Mode)
+        uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Start Database
+        run: pnpm supabase start
+
+      - name: Check for Schema Drift
+        run: pnpm check:drift
