@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "target": "ES2024" /* Generate modern JS (Classes, Async/Await) */,
+    "module": "NodeNext" /* Use modern ESM modules */,
+    "moduleResolution": "NodeNext" /* Resolve modules like Node.js does */,
+    "lib": ["ES2024"] /* Include modern JS features */,
+
+    /* Strict Type-Checking Options */
+    "strict": true /* Enable all strict type-checking options */,
+    "noImplicitAny": true /* Raise error on expressions with implied 'any' type */,
+    "strictNullChecks": true /* Don't allow null/undefined unless explicitly stated */,
+
+    /* Project Structure */
+    "rootDir": "./src" /* Where our source code lives */,
+    "outDir": "./dist" /* Where the compiled code goes */,
+    "removeComments": true /* Do not emit comments to output */,
+    "sourceMap": true /* Create source map files for debugging */,
+
+    /* Module Resolution & Aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"] /* Alias: @/folder maps to src/folder */
+    },
+    "esModuleInterop": true /* Allow importing CommonJS modules (like old libraries) */,
+    "skipLibCheck": true /* Skip type checking of declaration files */,
+    "forceConsistentCasingInFileNames": true /* Ensure file casing is consistent */
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.test.ts"]
+}

@@ -6,13 +6,31 @@
   "scripts": {
     "dev": "pnpm -r --parallel run dev",
     "build": "pnpm -r run build",
-    "lint": "pnpm -r run lint",
-    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules dist .turbo"
+    "lint": "eslint . --max-warnings 0",
+    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules dist .turbo",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,html,css}": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "supabase": "^2.75.5"
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
+    "supabase": "^2.75.5",
+    "typescript-eslint": "^8.54.0"
   }
 }
